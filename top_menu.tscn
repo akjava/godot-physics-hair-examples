@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://djjmi2bds5pfu"]
+
+[ext_resource type="Script" path="res://top_menu.gd" id="1_03fmf"]
+
+[node name="TopMenu" type="VBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_03fmf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Example1Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Example 01"
+
+[node name="Example2Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Example 02"
+
+[node name="Example3Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Example 03"
+
+[node name="Example4Button" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "Example 04"
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "Click to Start Example"
+
+[connection signal="pressed" from="HBoxContainer/Example1Button" to="." method="_on_example_1_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Example2Button" to="." method="_on_example_2_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Example3Button" to="." method="_on_example_3_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/Example4Button" to="." method="_on_example_4_button_pressed"]

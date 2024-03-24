@@ -1,0 +1,63 @@
+[gd_scene load_steps=7 format=3 uid="uid://dtoc6g18dkxgc"]
+
+[ext_resource type="Script" path="res://04_braid01.gd" id="1_pqp0r"]
+[ext_resource type="PackedScene" uid="uid://bcbeihseey2nj" path="res://open_botv_2_manny_quin_braid01.tscn" id="2_mrswi"]
+[ext_resource type="PackedScene" uid="uid://djjmi2bds5pfu" path="res://top_menu.tscn" id="3_s8007"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5l401"]
+
+[sub_resource type="Sky" id="Sky_8qf5g"]
+sky_material = SubResource("ProceduralSkyMaterial_5l401")
+
+[sub_resource type="Environment" id="Environment_xj2kb"]
+background_mode = 2
+sky = SubResource("Sky_8qf5g")
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_pqp0r")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_xj2kb")
+
+[node name="OpenBotv2-MannyQuin" parent="." instance=ExtResource("2_mrswi")]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 1)
+current = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TopMenu" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_s8007")]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Example4 Braid-Hair"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Start Phycis(Bone1)"
+
+[node name="StopButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Stop/Reset Physics"
